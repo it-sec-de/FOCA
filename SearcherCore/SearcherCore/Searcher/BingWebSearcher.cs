@@ -81,7 +81,7 @@ namespace FOCA.Searcher
             HashSet<Uri> results = new HashSet<Uri>();
             foreach (Match item in bingWebUriRegex.Matches(html))
             {
-                if (Uri.TryCreate(System.Web.HttpUtility.UrlPathEncode(item.Result("$1").Replace("&amp;", "&")), UriKind.Absolute, out Uri urlFound))
+                if (Uri.TryCreate(System.Net.WebUtility.UrlEncode(item.Result("$1").Replace("&amp;", "&")), UriKind.Absolute, out Uri urlFound))
                 {
                     results.Add(urlFound);
                 }

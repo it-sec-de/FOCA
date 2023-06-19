@@ -49,7 +49,7 @@ namespace FOCA.Searcher
 
         private string SendInitialRequest(string searchString)
         {
-            HttpWebRequest request = HttpWebRequest.CreateHttp(string.Format("https://duckduckgo.com/html/?q={0}&t=h_", System.Web.HttpUtility.UrlEncode(searchString)));
+            HttpWebRequest request = HttpWebRequest.CreateHttp(string.Format("https://duckduckgo.com/html/?q={0}&t=h_", System.Net.WebUtility.UrlEncode(searchString)));
             request.UserAgent = DefaultUserAgent;
             request.Referer = "https://duckduckgo.com/";
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -62,7 +62,7 @@ namespace FOCA.Searcher
         private string MoreResults(string searchString, string postParameters)
         {
             string responseString = String.Empty;
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("https://duckduckgo.com/html/?q={0}&t=h_", System.Web.HttpUtility.UrlEncode(searchString)));
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("https://duckduckgo.com/html/?q={0}&t=h_", System.Net.WebUtility.UrlEncode(searchString)));
             request.Method = "POST";
             request.Headers.Add("Origin: https://duckduckgo.com");
             request.Referer = "https://duckduckgo.com/";
@@ -117,7 +117,7 @@ namespace FOCA.Searcher
             foreach (var f in inputs)
             {
                 var value = f.Attributes["value"].Value;
-                value = System.Web.HttpUtility.UrlEncode(value);
+                value = System.Net.WebUtility.UrlEncode(value);
                 postParams += f.Attributes["name"].Value + "=" + value + "&";
             }
             postParams = postParams.Remove(postParams.Length - 1);

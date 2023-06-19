@@ -388,8 +388,8 @@ namespace FOCA.Analysis.HttpMap
                         if (uri.AbsoluteUri.IndexOf(file, StringComparison.Ordinal) > 0)
                             path = path.Remove(uri.AbsoluteUri.IndexOf(file, StringComparison.Ordinal));
 
-                        var mutex = _MutexFileRuntime(path, HttpUtility.UrlEncode(fileName),
-                            HttpUtility.UrlEncode(fileExtension));
+                        var mutex = _MutexFileRuntime(path, WebUtility.UrlEncode(fileName),
+                            WebUtility.UrlEncode(fileExtension));
 
                         if (mutex == null)
                             return allUrls;

@@ -50,7 +50,7 @@ namespace FOCA.Searcher
             string referer = string.Empty;
             OnSearcherLogEvent(new EventsThreads.ThreadStringEventArgs(string.Format("[{0}] Searching first={2} q={1}", Name, searchString, currentOffset)));
 
-            StringBuilder urlBuilder = new StringBuilder(String.Format("https://www.google.com/search?start={1}&num={0}&filter=0&q={2}", currentResultPerPage, currentOffset, HttpUtility.UrlEncode(searchString, Encoding.UTF8)));
+            StringBuilder urlBuilder = new StringBuilder(String.Format("https://www.google.com/search?start={1}&num={0}&filter=0&q={2}", currentResultPerPage, currentOffset, WebUtility.UrlEncode(searchString)));
 
             if (cSafeSearch != SafeSearch.off)
                 urlBuilder.Append("&safe=" + SafeSearchToString(cSafeSearch));
@@ -131,7 +131,7 @@ namespace FOCA.Searcher
             {
                 string link = m.Groups["url"].Value;
                 if (link.Contains("%"))
-                    link = (HttpUtility.UrlDecode(link));
+                    link = (WebUtility.UrlDecode(link));
                 if (Uri.TryCreate(link, UriKind.Absolute, out Uri foundUri) && !foundUri.Host.Contains("google.com"))
                 {
                     lstCurrentResults.Add(foundUri);
