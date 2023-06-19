@@ -7,7 +7,6 @@ using System.Net.Cache;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Web;
 
 namespace FOCA.Searcher
 {
@@ -73,7 +72,7 @@ namespace FOCA.Searcher
                 request.KeepAlive = true;
 
                 if (!string.IsNullOrEmpty(UserAgent))
-                    request.UserAgent = UserAgent;
+                    request.Headers["User-Agent"].ToString() = UserAgent;
 
                 if (!string.IsNullOrEmpty(referer))
                     request.Referer = referer;

@@ -120,7 +120,7 @@ namespace FOCA.Utilites
             {
                 // send request to json endpoint
                 HttpWebRequest ripeRequest = HttpWebRequest.CreateHttp("https://stat.ripe.net/data/whois/data.json?resource=" + ip);
-                ripeRequest.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:54.0) Gecko/20100101 Firefox/54.0";
+                ripeRequest.Headers["User-Agent"].ToString() = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:54.0) Gecko/20100101 Firefox/54.0";
                 ripeRequest.Headers.Add("Upgrade-Insecure-Requests: 1");
                 ripeRequest.Method = "GET";
                 ripeRequest.Headers.Add(HttpRequestHeader.Cookie, "serverid=www-plone-3; path=/");
