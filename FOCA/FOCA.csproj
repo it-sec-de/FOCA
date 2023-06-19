@@ -292,6 +292,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MetadataExtractCore\MetadataExtractCore.csproj" />
     <ProjectReference Include="..\SearcherCore\SearcherCore\SearcherCore.csproj" />
+    <ProjectReference Include="..\PluginsAPI source\PluginsAPI.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
