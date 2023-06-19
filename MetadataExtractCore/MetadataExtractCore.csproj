@@ -82,5 +82,6 @@
     <PackageReference Include="PdfSharp">
       <Version>1.50.5147</Version>
     </PackageReference>
+    <PackageReference Include="System.IO.Packaging" Version="7.0.0" />
   </ItemGroup>
 </Project>
