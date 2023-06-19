@@ -50,11 +50,11 @@ namespace FOCA.Searcher
                 HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(requestUrl);
                 if (!String.IsNullOrEmpty(UserAgent))
                 {
-                    request.Headers["User-Agent"].ToString() = UserAgent;
+                    request.UserAgent = UserAgent;
                 }
                 else
                 {
-                    request.Headers["User-Agent"].ToString() = DefaultUserAgent;
+                    request.UserAgent = DefaultUserAgent;
                 }
                 request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
                 request.Timeout = 5000 + 10000 * retries;

@@ -72,7 +72,7 @@ namespace FOCA.Searcher
                 request.KeepAlive = true;
 
                 if (!string.IsNullOrEmpty(UserAgent))
-                    request.Headers["User-Agent"].ToString() = UserAgent;
+                    request.UserAgent = UserAgent;
 
                 if (!string.IsNullOrEmpty(referer))
                     request.Referer = referer;

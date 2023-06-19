@@ -50,7 +50,7 @@ namespace FOCA.Searcher
         private string SendInitialRequest(string searchString)
         {
             HttpWebRequest request = HttpWebRequest.CreateHttp(string.Format("https://duckduckgo.com/html/?q={0}&t=h_", System.Web.HttpUtility.UrlEncode(searchString)));
-            request.Headers["User-Agent"].ToString() = DefaultUserAgent;
+            request.UserAgent = DefaultUserAgent;
             request.Referer = "https://duckduckgo.com/";
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             using (StreamReader responseReader = new StreamReader(response.GetResponseStream()))
@@ -67,7 +67,7 @@ namespace FOCA.Searcher
             request.Headers.Add("Origin: https://duckduckgo.com");
             request.Referer = "https://duckduckgo.com/";
             request.ContentType = "application/x-www-form-urlencoded";
-            request.Headers["User-Agent"].ToString() = DefaultUserAgent;
+            request.UserAgent = DefaultUserAgent;
             request.ContentLength = postParameters.Length;
             request.Headers.Add("Cache-Control: max-age=0");
             request.Headers.Add("Upgrade-Insecure-Requests: 1");
