@@ -270,6 +270,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="com.rusanu.dataconnectiondialog" Version="1.0.0.1" />
+    <PackageReference Include="DIARIOSDK" Version="1.0.1" />
     <PackageReference Include="Heijden.Dns">
       <Version>2.0.0</Version>
     </PackageReference>
