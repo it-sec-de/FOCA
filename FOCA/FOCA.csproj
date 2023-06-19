@@ -162,7 +162,7 @@
       <DependentUpon>201908230648106_RemoveUnusedBackupSupport.cs</DependentUpon>
     </Compile>
     <Compile Include="Database\Migrations\202001200633256_MalwareAnalysis.cs" />
-    <Compile Include="Database\Migrations\202001200633256_MalwareAnalysis.designer.cs">
+    <Compile Include="Database\Migrations\202001200633256_MalwareAnalysis.Designer.cs">
       <DependentUpon>202001200633256_MalwareAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\TreeNavigation.cs">
