@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFrameworks>net7.0-windows;net48</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <SccProjectName>SAK</SccProjectName>
@@ -42,9 +42,11 @@
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>false</BootstrapperEnabled>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
+  </PropertyGroup>
+  <PropertyGroup Condition="!$(TargetFramework.StartsWith('net4'))">
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DefineConstants>DEBUG;PRO, BackUps, PLUGINS, leaks</DefineConstants>
@@ -300,6 +302,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Target Name="BeforeBuild">
   </Target>

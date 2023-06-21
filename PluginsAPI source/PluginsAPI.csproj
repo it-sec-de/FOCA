@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFrameworks>net7.0-windows;net48</TargetFrameworks>
     <OutputType>Library</OutputType>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>
@@ -10,6 +10,8 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <PropertyGroup Condition="!$(TargetFramework.StartsWith('net4'))">
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
@@ -19,5 +21,8 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Heijden.Dns" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 </Project>

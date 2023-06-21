@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net7.0;net48</TargetFrameworks>
     <OutputType>Library</OutputType>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
